@@ -7,9 +7,9 @@ const Instructor = () => {
     <section id="instructor" className="pad-2xl" style={{ background: 'var(--bg-page)' }}>
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-          <h2 className="heading-1">Meet Your Instructor</h2>
+          <h2 className="heading-1">Познакомьтесь с вашим инструктором</h2>
           <p className="body-large" style={{ marginTop: '1rem' }}>
-            Learn from an experienced professional who's helped thousands master WordPress
+            Учитесь у опытного профессионала, который помог тысячам освоить WordPress
           </p>
         </div>
 
@@ -19,7 +19,7 @@ const Instructor = () => {
           gap: '3rem',
           alignItems: 'center'
         }}>
-          {/* Instructor Image Placeholder */}
+          {/* Изображение инструктора - заглушка */}
           <div style={{
             background: 'var(--accent-purple-200)',
             borderRadius: '1rem',
@@ -42,7 +42,7 @@ const Instructor = () => {
             </div>
           </div>
 
-          {/* Instructor Info */}
+          {/* Информация об инструкторе */}
           <div>
             <h3 className="heading-1" style={{ marginBottom: '0.5rem' }}>
               {instructor.name}
@@ -51,7 +51,7 @@ const Instructor = () => {
               {instructor.title}
             </p>
             
-            {/* Stats */}
+            {/* Статистика */}
             <div style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(2, 1fr)',
@@ -68,7 +68,7 @@ const Instructor = () => {
                   {instructor.experience}
                 </div>
                 <div className="body-small" style={{ color: 'var(--text-muted)' }}>
-                  Experience
+                  Опыта
                 </div>
               </div>
               <div style={{
@@ -81,7 +81,7 @@ const Instructor = () => {
                   {instructor.students}
                 </div>
                 <div className="body-small" style={{ color: 'var(--text-muted)' }}>
-                  Students Taught
+                  Обученных студентов
                 </div>
               </div>
             </div>
@@ -90,10 +90,10 @@ const Instructor = () => {
               {instructor.bio}
             </p>
 
-            {/* Credentials */}
+            {/* Сертификаты */}
             <div>
               <h4 className="heading-3" style={{ marginBottom: '1rem' }}>
-                Credentials & Certifications
+                Сертификаты и квалификация
               </h4>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                 {instructor.credentials.map((credential, index) => (
@@ -110,7 +110,7 @@ const Instructor = () => {
                 className="btn-secondary"
                 onClick={() => document.getElementById('register').scrollIntoView({ behavior: 'smooth' })}
               >
-                Learn with Sarah
+                Учиться с Анной
               </button>
             </div>
           </div>

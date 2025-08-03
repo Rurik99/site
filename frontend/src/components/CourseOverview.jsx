@@ -7,9 +7,9 @@ const CourseOverview = () => {
     <section id="course" className="pad-2xl" style={{ background: 'var(--bg-page)' }}>
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-          <h2 className="heading-1">Complete WordPress Mastery Program</h2>
+          <h2 className="heading-1">Полная программа изучения WordPress</h2>
           <p className="body-large" style={{ marginTop: '1rem', maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto' }}>
-            Six comprehensive modules designed to take you from complete beginner to WordPress professional. Each module builds upon the previous, ensuring solid understanding.
+            Шесть всесторонних модулей, разработанных чтобы провести вас от полного новичка до профессионала WordPress. Каждый модуль основывается на предыдущем, обеспечивая прочное понимание.
           </p>
         </div>
 
@@ -23,7 +23,7 @@ const CourseOverview = () => {
                   borderRadius: '0.5rem',
                   fontSize: '0.75rem'
                 }}>
-                  MODULE {index + 1}
+                  МОДУЛЬ {index + 1}
                 </div>
                 <CheckCircle size={16} style={{ color: 'var(--text-secondary)' }} />
               </div>
@@ -43,7 +43,7 @@ const CourseOverview = () => {
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }} className="caption">
                   <BookOpen size={12} />
-                  <span>{module.lessons} lessons</span>
+                  <span>{module.lessons} уроков</span>
                 </div>
               </div>
             </div>
@@ -55,7 +55,7 @@ const CourseOverview = () => {
             className="btn-primary"
             onClick={() => document.getElementById('register').scrollIntoView({ behavior: 'smooth' })}
           >
-            Enroll in Full Course
+            Записаться на полный курс
           </button>
         </div>
       </div>

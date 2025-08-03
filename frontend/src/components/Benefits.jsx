@@ -18,9 +18,9 @@ const Benefits = () => {
     <section className="pad-2xl" style={{ background: 'var(--bg-section)' }}>
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-          <h2 className="heading-1">Why Choose Our WordPress Course?</h2>
+          <h2 className="heading-1">Почему стоит выбрать наш курс WordPress?</h2>
           <p className="body-large" style={{ marginTop: '1rem', maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto' }}>
-            Designed specifically for beginners who want to build real websites, not just watch tutorials.
+            Разработан специально для новичков, которые хотят создавать настоящие сайты, а не просто смотреть видеоуроки.
           </p>
         </div>
 
@@ -68,10 +68,10 @@ const Benefits = () => {
           boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)'
         }}>
           <h3 className="heading-2" style={{ marginBottom: '1rem' }}>
-            What You'll Build
+            Что вы создадите
           </h3>
           <p className="body-medium" style={{ marginBottom: '1.5rem', color: 'var(--text-secondary)' }}>
-            By the end of this course, you'll have created:
+            К концу этого курса вы создадите:
           </p>
           
           <div style={{
@@ -81,10 +81,10 @@ const Benefits = () => {
             marginBottom: '1.5rem'
           }}>
             {[
-              'Personal portfolio website',
-              'Business landing page',
-              'Blog with custom design',
-              'Optimized site for search engines'
+              'Персональный сайт-портфолио',
+              'Лендинг для бизнеса',
+              'Блог с кастомным дизайном',
+              'SEO-оптимизированный сайт'
             ].map((item, index) => (
               <div key={index} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }} className="body-small">
                 <div style={{

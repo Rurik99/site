@@ -9,7 +9,7 @@ const Header = () => {
       <div className="container">
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
           <a href="#" className="logo">
-            WP Master
+            WP Мастер
           </a>
           
           <nav className="nav-actions">
@@ -18,28 +18,28 @@ const Header = () => {
               className="body-small" 
               style={{ textDecoration: 'none', color: 'var(--text-primary)' }}
             >
-              Course
+              Курс
             </a>
             <a 
               href="#instructor" 
               className="body-small" 
               style={{ textDecoration: 'none', color: 'var(--text-primary)' }}
             >
-              Instructor
+              Инструктор
             </a>
             <a 
               href="#testimonials" 
               className="body-small" 
               style={{ textDecoration: 'none', color: 'var(--text-primary)' }}
             >
-              Reviews
+              Отзывы
             </a>
             <a 
               href="#register" 
               className="btn-primary"
               style={{ textDecoration: 'none' }}
             >
-              Start Learning
+              Начать обучение
             </a>
           </nav>
         </div>

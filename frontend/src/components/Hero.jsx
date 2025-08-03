@@ -7,7 +7,7 @@ const Hero = () => {
   };
 
   const handleWatchPreview = () => {
-    alert('Video preview would open here - this is a mock implementation');
+    alert('Здесь откроется видео-превью - это демонстрационная реализация');
   };
 
   return (
@@ -15,15 +15,15 @@ const Hero = () => {
       <div className="hero-content">
         <div className="hero-announcement">
           <Star size={12} fill="currentColor" />
-          <span>4.9/5 Rating • 2,500+ Students Enrolled</span>
+          <span>Рейтинг 4.9/5 • Более 2500 студентов зарегистрировано</span>
         </div>
         
         <h1 className="heading-hero hero-title">
-          Master WordPress From Zero to Professional Website Creator
+          Освойте WordPress от нуля до профессионального создателя сайтов
         </h1>
         
         <p className="body-large hero-subtitle">
-          Learn everything you need to build stunning WordPress websites. From basic setup to advanced customization - we'll guide you step by step through the complete journey.
+          Изучите все необходимое для создания потрясающих WordPress сайтов. От базовой настройки до продвинутой кастомизации - мы проведем вас пошагово через весь путь.
         </p>
         
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'center', marginBottom: '2rem' }}>
@@ -32,7 +32,7 @@ const Hero = () => {
               className="btn-primary"
               onClick={handleGetStarted}
             >
-              Start Learning Now
+              Начать обучение сейчас
             </button>
             <button 
               className="btn-secondary"
@@ -40,30 +40,30 @@ const Hero = () => {
               style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
             >
               <Play size={16} />
-              Watch Preview
+              Смотреть превью
             </button>
           </div>
           
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }} className="caption">
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
               <Users size={14} />
-              <span>2,500+ students</span>
+              <span>2500+ студентов</span>
             </div>
             <span>•</span>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
               <Clock size={14} />
-              <span>12+ hours content</span>
+              <span>12+ часов контента</span>
             </div>
             <span>•</span>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
               <Star size={14} fill="currentColor" />
-              <span>Lifetime access</span>
+              <span>Пожизненный доступ</span>
             </div>
           </div>
         </div>
         
         <div className="mono-text" style={{ textAlign: 'center' }}>
-          "The most comprehensive WordPress course for beginners"
+          "Самый полный курс WordPress для начинающих"
         </div>
       </div>
     </section>
