@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
-import { faqItems } from '../data/mock';
 
-const FAQ = () => {
+const FAQ = ({ faqItems = [] }) => {
   const [openItems, setOpenItems] = useState({});
 
   const toggleItem = (id) => {
@@ -11,6 +10,27 @@ const FAQ = () => {
       [id]: !prev[id]
     }));
   };
+
+  // Fallback data если не загрузились из API
+  const defaultFaqItems = [
+    {
+      id: "1",
+      question: "Нужен ли мне предыдущий опыт работы с WordPress?",
+      answer: "Совсем не нужен! Этот курс создан специально для полных новичков. Мы начинаем с самых основ - что такое WordPress, как его установить, и постепенно развиваем ваши навыки. К концу курса вы будете уверенно создавать и управлять профессиональными сайтами."
+    },
+    {
+      id: "2",
+      question: "Что мне нужно для начала обучения?",
+      answer: "Все, что вам нужно - это компьютер с доступом к интернету и желание учиться. Мы покажем, как настроить все остальное, включая хостинг, доменные имена и установку WordPress. Курс включает рекомендации по бесплатным и платным инструментам."
+    },
+    {
+      id: "3",
+      question: "Сколько времени займет прохождение курса?",
+      answer: "Курс содержит более 12 часов контента, но вы можете учиться в своем темпе. Большинство студентов завершают его за 2-4 недели, уделяя 1-2 часа в день. Помните, у вас пожизненный доступ, так что никуда не торопитесь!"
+    }
+  ];
+
+  const faqToShow = faqItems.length > 0 ? faqItems : defaultFaqItems;
 
   return (
     <section className="pad-2xl" style={{ background: 'var(--bg-page)' }}>
@@ -23,7 +43,7 @@ const FAQ = () => {
         </div>
 
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-          {faqItems.map((item) => (
+          {faqToShow.map((item) => (
             <div key={item.id} style={{
               background: 'var(--bg-card)',
               borderRadius: '1rem',

@@ -1,8 +1,7 @@
 import React from 'react';
 import { Play, Code, Infinity, HelpCircle } from 'lucide-react';
-import { benefits } from '../data/mock';
 
-const Benefits = () => {
+const Benefits = ({ benefits = [] }) => {
   const getIcon = (iconName) => {
     const icons = {
       'play': Play,
@@ -13,6 +12,36 @@ const Benefits = () => {
     const IconComponent = icons[iconName];
     return IconComponent ? <IconComponent size={24} /> : <Play size={24} />;
   };
+
+  // Fallback data если не загрузились из API
+  const defaultBenefits = [
+    {
+      id: 1,
+      title: "Начинаем с нуля",
+      description: "Никакого предыдущего опыта не требуется. Мы начинаем с самых основ и систематически развиваем ваши навыки.",
+      icon: "play"
+    },
+    {
+      id: 2,
+      title: "Практическое обучение",
+      description: "Создавайте реальные сайты в процессе обучения. Каждый модуль включает практические упражнения и реальные проекты.",
+      icon: "code"
+    },
+    {
+      id: 3,
+      title: "Пожизненный доступ",
+      description: "После регистрации получите доступ к курсу навсегда. Учитесь в своем темпе и пересматривайте уроки в любое время.",
+      icon: "infinity"
+    },
+    {
+      id: 4,
+      title: "Поддержка экспертов",
+      description: "Получайте помощь, когда она вам нужна. Наш инструктор и сообщество готовы поддержать ваше обучение.",
+      icon: "help-circle"
+    }
+  ];
+
+  const benefitsToShow = benefits.length > 0 ? benefits : defaultBenefits;
 
   return (
     <section className="pad-2xl" style={{ background: 'var(--bg-section)' }}>
@@ -30,7 +59,7 @@ const Benefits = () => {
           gap: '2rem',
           marginBottom: '3rem'
         }}>
-          {benefits.map((benefit) => (
+          {benefitsToShow.map((benefit) => (
             <div key={benefit.id} style={{
               textAlign: 'center',
               padding: '2rem 1rem'

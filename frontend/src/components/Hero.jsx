@@ -1,7 +1,7 @@
 import React from 'react';
 import { Star, Play, Users, Clock } from 'lucide-react';
 
-const Hero = () => {
+const Hero = ({ courseInfo }) => {
   const handleGetStarted = () => {
     document.getElementById('register').scrollIntoView({ behavior: 'smooth' });
   };
@@ -10,12 +10,18 @@ const Hero = () => {
     alert('Здесь откроется видео-превью - это демонстрационная реализация');
   };
 
+  // Получить статистику из API или использовать fallback
+  const stats = courseInfo?.stats || {
+    total_students: 2500,
+    rating: 4.9
+  };
+
   return (
     <section className="hero-section" id="hero">
       <div className="hero-content">
         <div className="hero-announcement">
           <Star size={12} fill="currentColor" />
-          <span>Рейтинг 4.9/5 • Более 2500 студентов зарегистрировано</span>
+          <span>Рейтинг {stats.rating}/5 • Более {stats.total_students} студентов зарегистрировано</span>
         </div>
         
         <h1 className="heading-hero hero-title">
@@ -47,7 +53,7 @@ const Hero = () => {
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }} className="caption">
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
               <Users size={14} />
-              <span>2500+ студентов</span>
+              <span>{stats.total_students}+ студентов</span>
             </div>
             <span>•</span>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>

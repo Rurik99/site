@@ -1,8 +1,24 @@
 import React from 'react';
 import { Star, Users, Award, BookOpen } from 'lucide-react';
-import { instructor } from '../data/mock';
 
-const Instructor = () => {
+const Instructor = ({ instructor }) => {
+  // Fallback data если не загрузились из API
+  const defaultInstructor = {
+    name: "Анна Петрова",
+    title: "Эксперт WordPress и веб-разработчик",
+    experience: "8+ лет",
+    students_count: "15 000+",
+    bio: "Анна - профессиональный веб-разработчик, работающий с WordPress с 2015 года. Она создала более 200 сайтов для клиентов от малого бизнеса до крупных корпораций. Анна увлечена преподаванием и помогла тысячам студентов освоить WordPress благодаря своему четкому пошаговому подходу к обучению.",
+    credentials: [
+      "Сертифицированный WordPress разработчик",
+      "Сертификат Google Analytics",
+      "Сертификат Yoast SEO",
+      "8+ лет профессионального опыта"
+    ]
+  };
+
+  const instructorData = instructor || defaultInstructor;
+
   return (
     <section id="instructor" className="pad-2xl" style={{ background: 'var(--bg-page)' }}>
       <div className="container">
@@ -45,10 +61,10 @@ const Instructor = () => {
           {/* Информация об инструкторе */}
           <div>
             <h3 className="heading-1" style={{ marginBottom: '0.5rem' }}>
-              {instructor.name}
+              {instructorData.name}
             </h3>
             <p className="body-large" style={{ color: 'var(--text-secondary)', marginBottom: '1rem' }}>
-              {instructor.title}
+              {instructorData.title}
             </p>
             
             {/* Статистика */}
@@ -65,7 +81,7 @@ const Instructor = () => {
                 textAlign: 'center'
               }}>
                 <div className="heading-2" style={{ color: 'var(--accent-blue-400)' }}>
-                  {instructor.experience}
+                  {instructorData.experience}
                 </div>
                 <div className="body-small" style={{ color: 'var(--text-muted)' }}>
                   Опыта
@@ -78,7 +94,7 @@ const Instructor = () => {
                 textAlign: 'center'
               }}>
                 <div className="heading-2" style={{ color: 'var(--accent-orange-400)' }}>
-                  {instructor.students}
+                  {instructorData.students_count}
                 </div>
                 <div className="body-small" style={{ color: 'var(--text-muted)' }}>
                   Обученных студентов
@@ -87,7 +103,7 @@ const Instructor = () => {
             </div>
 
             <p className="body-medium" style={{ marginBottom: '2rem', lineHeight: '1.6' }}>
-              {instructor.bio}
+              {instructorData.bio}
             </p>
 
             {/* Сертификаты */}
@@ -96,7 +112,7 @@ const Instructor = () => {
                 Сертификаты и квалификация
               </h4>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                {instructor.credentials.map((credential, index) => (
+                {instructorData.credentials.map((credential, index) => (
                   <div key={index} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }} className="body-small">
                     <Award size={14} style={{ color: 'var(--accent-green-200)' }} />
                     {credential}
@@ -110,7 +126,7 @@ const Instructor = () => {
                 className="btn-secondary"
                 onClick={() => document.getElementById('register').scrollIntoView({ behavior: 'smooth' })}
               >
-                Учиться с Анной
+                Учиться с {instructorData.name.split(' ')[0]}
               </button>
             </div>
           </div>

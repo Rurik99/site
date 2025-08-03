@@ -1,8 +1,10 @@
 import React from 'react';
 import { Star, Quote } from 'lucide-react';
-import { testimonials } from '../data/mock';
+import { useTestimonials } from '../hooks/useApi';
 
 const Testimonials = () => {
+  const { testimonials, loading, error } = useTestimonials();
+
   const renderStars = (rating) => {
     return Array.from({ length: 5 }, (_, i) => (
       <Star 
@@ -14,6 +16,18 @@ const Testimonials = () => {
     ));
   };
 
+  if (loading) {
+    return (
+      <section id="testimonials" className="pad-2xl" style={{ background: 'var(--bg-section)' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center' }}>
+            <div className="body-medium">Загружаем отзывы...</div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section id="testimonials" className="pad-2xl" style={{ background: 'var(--bg-section)' }}>
       <div className="container">
@@ -23,6 +37,21 @@ const Testimonials = () => {
             Присоединяйтесь к тысячам успешных студентов, которые преобразили свои навыки работы с WordPress
           </p>
         </div>
+
+        {error && (
+          <div style={{ 
+            textAlign: 'center', 
+            marginBottom: '2rem', 
+            padding: '1rem',
+            background: '#FEF3CD',
+            borderRadius: '0.5rem',
+            border: '1px solid #FCD34D'
+          }}>
+            <p className="body-small" style={{ color: '#92400E' }}>
+              Не удалось загрузить отзывы, но мы показываем сохраненные данные
+            </p>
+          </div>
+        )}
 
         <div style={{
           display: 'grid',
@@ -69,7 +98,7 @@ const Testimonials = () => {
                   </div>
                 </div>
                 <div className="caption" style={{ color: 'var(--text-muted)' }}>
-                  {testimonial.date}
+                  {testimonial.date_text}
                 </div>
               </div>
             </div>
