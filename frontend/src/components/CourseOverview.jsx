@@ -1,8 +1,7 @@
 import React from 'react';
 import { Clock, BookOpen, CheckCircle } from 'lucide-react';
-import { courseModules } from '../data/mock';
 
-const CourseOverview = () => {
+const CourseOverview = ({ modules = [] }) => {
   return (
     <section id="course" className="pad-2xl" style={{ background: 'var(--bg-page)' }}>
       <div className="container">
@@ -14,7 +13,7 @@ const CourseOverview = () => {
         </div>
 
         <div className="course-grid">
-          {courseModules.map((module, index) => (
+          {modules.map((module, index) => (
             <div key={module.id} className={`course-card ${module.accent}`}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
                 <div className="mono-text" style={{ 
@@ -23,7 +22,7 @@ const CourseOverview = () => {
                   borderRadius: '0.5rem',
                   fontSize: '0.75rem'
                 }}>
-                  МОДУЛЬ {index + 1}
+                  МОДУЛЬ {module.order || index + 1}
                 </div>
                 <CheckCircle size={16} style={{ color: 'var(--text-secondary)' }} />
               </div>

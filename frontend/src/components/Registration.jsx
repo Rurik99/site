@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { CheckCircle, ArrowRight, Mail, User, Phone } from 'lucide-react';
-import { registrationBenefits } from '../data/mock';
+import { CheckCircle, ArrowRight, Mail, User, Phone, AlertCircle } from 'lucide-react';
+import { registerStudent } from '../hooks/useApi';
 
-const Registration = () => {
+const Registration = ({ registrationBenefits = [] }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -10,19 +10,30 @@ const Registration = () => {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
+  const [successData, setSuccessData] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Демонстрационная регистрация - сохранение в localStorage
-    const registrations = JSON.parse(localStorage.getItem('wpCourseRegistrations') || '[]');
-    registrations.push({
-      ...formData,
-      timestamp: new Date().toISOString()
-    });
-    localStorage.setItem('wpCourseRegistrations', JSON.stringify(registrations));
-    
-    setIsSubmitted(true);
-    setFormData({ name: '', email: '', phone: '' });
+    setIsSubmitting(true);
+    setError('');
+
+    try {
+      const result = await registerStudent(formData);
+      
+      if (result.success) {
+        setSuccessData(result.data);
+        setIsSubmitted(true);
+        setFormData({ name: '', email: '', phone: '' });
+      } else {
+        setError(result.error);
+      }
+    } catch (err) {
+      setError('Произошла неожиданная ошибка. Попробуйте еще раз.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (e) => {
@@ -30,7 +41,23 @@ const Registration = () => {
       ...formData,
       [e.target.name]: e.target.value
     });
+    // Очистить ошибку при изменении данных
+    if (error) setError('');
   };
+
+  // Fallback benefits если не загрузились из API
+  const defaultBenefits = [
+    "12+ часов пошагового видео контента",
+    "6 всесторонних модулей, охватывающих все",
+    "Практические проекты и реальные упражнения", 
+    "Пожизненный доступ ко всем материалам курса",
+    "Доступ к закрытому студенческому сообществу",
+    "Регулярные обновления курса и новый контент",
+    "30-дневная гарантия возврата денег",
+    "Сертификат о завершении курса"
+  ];
+
+  const benefitsToShow = registrationBenefits.length > 0 ? registrationBenefits : defaultBenefits;
 
   return (
     <section id="register" className="pad-2xl" style={{ 
@@ -59,7 +86,7 @@ const Registration = () => {
                   Что включено:
                 </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                  {registrationBenefits.map((benefit, index) => (
+                  {benefitsToShow.map((benefit, index) => (
                     <div key={index} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
                       <CheckCircle 
                         size={16} 
@@ -104,6 +131,24 @@ const Registration = () => {
                   Начните обучение сегодня
                 </h3>
 
+                {error && (
+                  <div style={{
+                    background: '#FEE2E2',
+                    border: '1px solid #FCA5A5',
+                    borderRadius: '0.5rem',
+                    padding: '0.75rem',
+                    marginBottom: '1.5rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.5rem'
+                  }}>
+                    <AlertCircle size={16} style={{ color: '#DC2626' }} />
+                    <span className="body-small" style={{ color: '#DC2626' }}>
+                      {error}
+                    </span>
+                  </div>
+                )}
+
                 <form onSubmit={handleSubmit}>
                   <div style={{ marginBottom: '1.5rem' }}>
                     <label className="body-small" style={{ 
@@ -120,6 +165,7 @@ const Registration = () => {
                         value={formData.name}
                         onChange={handleInputChange}
                         required
+                        disabled={isSubmitting}
                         style={{
                           width: '100%',
                           padding: '0.75rem 1rem',
@@ -130,7 +176,8 @@ const Registration = () => {
                           background: 'var(--bg-card)',
                           color: 'var(--text-primary)',
                           outline: 'none',
-                          transition: 'border-color 0.2s ease'
+                          transition: 'border-color 0.2s ease',
+                          opacity: isSubmitting ? 0.6 : 1
                         }}
                         onFocus={(e) => e.target.style.borderColor = 'var(--border-input-focus)'}
                         onBlur={(e) => e.target.style.borderColor = 'var(--border-input)'}
@@ -164,6 +211,7 @@ const Registration = () => {
                         value={formData.email}
                         onChange={handleInputChange}
                         required
+                        disabled={isSubmitting}
                         style={{
                           width: '100%',
                           padding: '0.75rem 1rem',
@@ -174,7 +222,8 @@ const Registration = () => {
                           background: 'var(--bg-card)',
                           color: 'var(--text-primary)',
                           outline: 'none',
-                          transition: 'border-color 0.2s ease'
+                          transition: 'border-color 0.2s ease',
+                          opacity: isSubmitting ? 0.6 : 1
                         }}
                         onFocus={(e) => e.target.style.borderColor = 'var(--border-input-focus)'}
                         onBlur={(e) => e.target.style.borderColor = 'var(--border-input)'}
@@ -207,6 +256,7 @@ const Registration = () => {
                         name="phone"
                         value={formData.phone}
                         onChange={handleInputChange}
+                        disabled={isSubmitting}
                         style={{
                           width: '100%',
                           padding: '0.75rem 1rem',
@@ -217,7 +267,8 @@ const Registration = () => {
                           background: 'var(--bg-card)',
                           color: 'var(--text-primary)',
                           outline: 'none',
-                          transition: 'border-color 0.2s ease'
+                          transition: 'border-color 0.2s ease',
+                          opacity: isSubmitting ? 0.6 : 1
                         }}
                         onFocus={(e) => e.target.style.borderColor = 'var(--border-input-focus)'}
                         onBlur={(e) => e.target.style.borderColor = 'var(--border-input)'}
@@ -239,17 +290,19 @@ const Registration = () => {
                   <button 
                     type="submit"
                     className="btn-primary"
+                    disabled={isSubmitting}
                     style={{ 
                       width: '100%',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       gap: '0.5rem',
-                      minHeight: '3rem'
+                      minHeight: '3rem',
+                      opacity: isSubmitting ? 0.6 : 1
                     }}
                   >
-                    Записаться на курс
-                    <ArrowRight size={16} />
+                    {isSubmitting ? 'Отправляем...' : 'Записаться на курс'}
+                    {!isSubmitting && <ArrowRight size={16} />}
                   </button>
                 </form>
 
@@ -296,51 +349,23 @@ const Registration = () => {
                 Что дальше?
               </h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', textAlign: 'left' }}>
-                <div style={{ display: 'flex', gap: '0.75rem' }}>
-                  <span style={{ 
-                    background: 'var(--text-primary)', 
-                    color: 'white', 
-                    borderRadius: '50%', 
-                    width: '1.5rem', 
-                    height: '1.5rem', 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    justifyContent: 'center',
-                    fontSize: '0.75rem',
-                    flexShrink: 0
-                  }}>1</span>
-                  <span className="body-medium">Проверьте почту для получения ссылки доступа к курсу</span>
-                </div>
-                <div style={{ display: 'flex', gap: '0.75rem' }}>
-                  <span style={{ 
-                    background: 'var(--text-primary)', 
-                    color: 'white', 
-                    borderRadius: '50%', 
-                    width: '1.5rem', 
-                    height: '1.5rem', 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    justifyContent: 'center',
-                    fontSize: '0.75rem',
-                    flexShrink: 0
-                  }}>2</span>
-                  <span className="body-medium">Создайте свой студенческий аккаунт</span>
-                </div>
-                <div style={{ display: 'flex', gap: '0.75rem' }}>
-                  <span style={{ 
-                    background: 'var(--text-primary)', 
-                    color: 'white', 
-                    borderRadius: '50%', 
-                    width: '1.5rem', 
-                    height: '1.5rem', 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    justifyContent: 'center',
-                    fontSize: '0.75rem',
-                    flexShrink: 0
-                  }}>3</span>
-                  <span className="body-medium">Начните с Модуля 1: Основы WordPress</span>
-                </div>
+                {successData?.next_steps?.map((step, index) => (
+                  <div key={index} style={{ display: 'flex', gap: '0.75rem' }}>
+                    <span style={{ 
+                      background: 'var(--text-primary)', 
+                      color: 'white', 
+                      borderRadius: '50%', 
+                      width: '1.5rem', 
+                      height: '1.5rem', 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      justifyContent: 'center',
+                      fontSize: '0.75rem',
+                      flexShrink: 0
+                    }}>{index + 1}</span>
+                    <span className="body-medium">{step}</span>
+                  </div>
+                ))}
               </div>
             </div>
             
