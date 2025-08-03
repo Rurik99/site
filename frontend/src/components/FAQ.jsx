@@ -16,9 +16,9 @@ const FAQ = () => {
     <section className="pad-2xl" style={{ background: 'var(--bg-page)' }}>
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-          <h2 className="heading-1">Frequently Asked Questions</h2>
+          <h2 className="heading-1">Часто задаваемые вопросы</h2>
           <p className="body-large" style={{ marginTop: '1rem' }}>
-            Got questions? We've got answers. Here are the most common questions about our WordPress course.
+            Остались вопросы? У нас есть ответы. Здесь собраны самые популярные вопросы о нашем курсе WordPress.
           </p>
         </div>
 
@@ -71,13 +71,13 @@ const FAQ = () => {
 
         <div style={{ textAlign: 'center', marginTop: '3rem' }}>
           <p className="body-medium" style={{ marginBottom: '1rem' }}>
-            Still have questions?
+            Остались вопросы?
           </p>
           <button 
             className="btn-secondary"
-            onClick={() => alert('Contact form would open here - this is a mock implementation')}
+            onClick={() => alert('Форма обратной связи откроется здесь - это демонстрационная реализация')}
           >
-            Contact Us
+            Связаться с нами
           </button>
         </div>
       </div>

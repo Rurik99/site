@@ -17,13 +17,13 @@ const Footer = () => {
           gap: '2rem',
           marginBottom: '2rem'
         }}>
-          {/* Company Info */}
+          {/* Информация о компании */}
           <div>
             <div className="heading-2" style={{ marginBottom: '1rem', color: 'white' }}>
-              WP Master
+              WP Мастер
             </div>
             <p className="body-medium" style={{ marginBottom: '1.5rem', opacity: 0.8 }}>
-              Empowering beginners to create professional WordPress websites through comprehensive, hands-on training.
+              Помогаем новичкам создавать профессиональные WordPress сайты через всестороннее практическое обучение.
             </p>
             <div style={{ display: 'flex', gap: '1rem' }}>
               {[Facebook, Twitter, Youtube, Instagram].map((Icon, index) => (
@@ -39,7 +39,7 @@ const Footer = () => {
                   }}
                   onMouseOver={(e) => e.target.style.background = 'rgba(255, 255, 255, 0.2)'}
                   onMouseOut={(e) => e.target.style.background = 'rgba(255, 255, 255, 0.1)'}
-                  onClick={() => alert('Social media link - mock implementation')}
+                  onClick={() => alert('Ссылка на социальную сеть - демонстрационная реализация')}
                 >
                   <Icon size={16} color="white" />
                 </button>
@@ -47,18 +47,18 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Быстрые ссылки */}
           <div>
             <h4 className="heading-3" style={{ marginBottom: '1rem', color: 'white' }}>
-              Quick Links
+              Быстрые ссылки
             </h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               {[
-                { label: 'Course Overview', href: '#course' },
-                { label: 'About Instructor', href: '#instructor' },
-                { label: 'Student Reviews', href: '#testimonials' },
-                { label: 'FAQ', href: '#faq' },
-                { label: 'Register Now', href: '#register' }
+                { label: 'Обзор курса', href: '#course' },
+                { label: 'Об инструкторе', href: '#instructor' },
+                { label: 'Отзывы студентов', href: '#testimonials' },
+                { label: 'Вопросы и ответы', href: '#faq' },
+                { label: 'Зарегистрироваться', href: '#register' }
               ].map((link, index) => (
                 <a
                   key={index}
@@ -79,53 +79,53 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Course Info */}
+          {/* Информация о курсе */}
           <div>
             <h4 className="heading-3" style={{ marginBottom: '1rem', color: 'white' }}>
-              Course Details
+              Детали курса
             </h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               <div className="body-small" style={{ opacity: 0.8 }}>
-                📚 6 Comprehensive Modules
+                📚 6 всесторонних модулей
               </div>
               <div className="body-small" style={{ opacity: 0.8 }}>
-                ⏱️ 12+ Hours of Content
+                ⏱️ 12+ часов контента
               </div>
               <div className="body-small" style={{ opacity: 0.8 }}>
-                👥 2,500+ Happy Students
+                👥 2,500+ довольных студентов
               </div>
               <div className="body-small" style={{ opacity: 0.8 }}>
-                🏆 Certificate of Completion
+                🏆 Сертификат о завершении
               </div>
               <div className="body-small" style={{ opacity: 0.8 }}>
-                💯 Lifetime Access
+                💯 Пожизненный доступ
               </div>
             </div>
           </div>
 
-          {/* Contact Info */}
+          {/* Контактная информация */}
           <div>
             <h4 className="heading-3" style={{ marginBottom: '1rem', color: 'white' }}>
-              Contact Us
+              Связаться с нами
             </h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }} className="body-small">
                 <Mail size={14} style={{ opacity: 0.8 }} />
-                <span style={{ opacity: 0.8 }}>hello@wpmaster.com</span>
+                <span style={{ opacity: 0.8 }}>hello@wpmaster.ru</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }} className="body-small">
                 <Phone size={14} style={{ opacity: 0.8 }} />
-                <span style={{ opacity: 0.8 }}>+1 (555) 123-4567</span>
+                <span style={{ opacity: 0.8 }}>+7 (495) 123-45-67</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }} className="body-small">
                 <MapPin size={14} style={{ opacity: 0.8, marginTop: '0.125rem', flexShrink: 0 }} />
-                <span style={{ opacity: 0.8 }}>123 Learning Street<br />Education City, EC 12345</span>
+                <span style={{ opacity: 0.8 }}>ул. Обучения, 123<br />Москва, 123456</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
+        {/* Нижняя панель */}
         <div style={{
           borderTop: '1px solid rgba(255, 255, 255, 0.1)',
           paddingTop: '2rem',
@@ -141,10 +141,10 @@ const Footer = () => {
             gap: '2rem'
           }}>
             {[
-              'Privacy Policy',
-              'Terms of Service',
-              'Refund Policy',
-              'Student Support'
+              'Политика конфиденциальности',
+              'Условия использования',
+              'Политика возврата',
+              'Поддержка студентов'
             ].map((item, index) => (
               <button
                 key={index}
@@ -159,7 +159,7 @@ const Footer = () => {
                 }}
                 onMouseOver={(e) => e.target.style.opacity = '1'}
                 onMouseOut={(e) => e.target.style.opacity = '0.8'}
-                onClick={() => alert(`${item} - mock implementation`)}
+                onClick={() => alert(`${item} - демонстрационная реализация`)}
               >
                 {item}
               </button>
@@ -167,7 +167,7 @@ const Footer = () => {
           </div>
           
           <div className="caption" style={{ opacity: 0.6, textAlign: 'center' }}>
-            © {currentYear} WP Master. All rights reserved. Made with ❤️ for WordPress learners.
+            © {currentYear} WP Мастер. Все права защищены. Создано с ❤️ для изучающих WordPress.
           </div>
         </div>
       </div>

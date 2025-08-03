@@ -13,7 +13,7 @@ const Registration = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Mock registration - store in localStorage for demo
+    // Демонстрационная регистрация - сохранение в localStorage
     const registrations = JSON.parse(localStorage.getItem('wpCourseRegistrations') || '[]');
     registrations.push({
       ...formData,
@@ -41,9 +41,9 @@ const Registration = () => {
         {!isSubmitted ? (
           <>
             <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-              <h2 className="heading-1">Ready to Master WordPress?</h2>
+              <h2 className="heading-1">Готовы освоить WordPress?</h2>
               <p className="body-large" style={{ marginTop: '1rem', maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto' }}>
-                Join thousands of students who've transformed their web development skills. Start your WordPress journey today!
+                Присоединяйтесь к тысячам студентов, которые преобразили свои навыки веб-разработки. Начните свое путешествие в мир WordPress уже сегодня!
               </p>
             </div>
 
@@ -53,10 +53,10 @@ const Registration = () => {
               gap: '3rem',
               alignItems: 'start'
             }}>
-              {/* Registration Benefits */}
+              {/* Преимущества регистрации */}
               <div>
                 <h3 className="heading-2" style={{ marginBottom: '1.5rem' }}>
-                  What's Included:
+                  Что включено:
                 </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                   {registrationBenefits.map((benefit, index) => (
@@ -82,18 +82,18 @@ const Registration = () => {
                   backdropFilter: 'blur(4px)'
                 }}>
                   <div className="mono-text" style={{ marginBottom: '0.5rem' }}>
-                    LIMITED TIME OFFER
+                    ОГРАНИЧЕННОЕ ПРЕДЛОЖЕНИЕ
                   </div>
                   <div className="heading-2" style={{ marginBottom: '0.5rem' }}>
-                    Early Bird Special
+                    Скидка для первых студентов
                   </div>
                   <p className="body-small" style={{ color: 'var(--text-secondary)' }}>
-                    Register now and get immediate access plus exclusive bonus materials worth $200
+                    Зарегистрируйтесь сейчас и получите мгновенный доступ плюс эксклюзивные бонусные материалы стоимостью 15,000₽
                   </p>
                 </div>
               </div>
 
-              {/* Registration Form */}
+              {/* Форма регистрации */}
               <div style={{
                 background: 'var(--bg-card)',
                 borderRadius: '1rem',
@@ -101,7 +101,7 @@ const Registration = () => {
                 boxShadow: '0 8px 24px rgba(0, 0, 0, 0.08)'
               }}>
                 <h3 className="heading-2" style={{ marginBottom: '1.5rem', textAlign: 'center' }}>
-                  Start Learning Today
+                  Начните обучение сегодня
                 </h3>
 
                 <form onSubmit={handleSubmit}>
@@ -111,7 +111,7 @@ const Registration = () => {
                       marginBottom: '0.5rem',
                       color: 'var(--text-secondary)'
                     }}>
-                      Full Name *
+                      Полное имя *
                     </label>
                     <div style={{ position: 'relative' }}>
                       <input
@@ -134,7 +134,7 @@ const Registration = () => {
                         }}
                         onFocus={(e) => e.target.style.borderColor = 'var(--border-input-focus)'}
                         onBlur={(e) => e.target.style.borderColor = 'var(--border-input)'}
-                        placeholder="Enter your full name"
+                        placeholder="Введите ваше полное имя"
                       />
                       <User 
                         size={16} 
@@ -155,7 +155,7 @@ const Registration = () => {
                       marginBottom: '0.5rem',
                       color: 'var(--text-secondary)'
                     }}>
-                      Email Address *
+                      Email адрес *
                     </label>
                     <div style={{ position: 'relative' }}>
                       <input
@@ -178,7 +178,7 @@ const Registration = () => {
                         }}
                         onFocus={(e) => e.target.style.borderColor = 'var(--border-input-focus)'}
                         onBlur={(e) => e.target.style.borderColor = 'var(--border-input)'}
-                        placeholder="your@email.com"
+                        placeholder="ваш@email.ru"
                       />
                       <Mail 
                         size={16} 
@@ -199,7 +199,7 @@ const Registration = () => {
                       marginBottom: '0.5rem',
                       color: 'var(--text-secondary)'
                     }}>
-                      Phone Number (Optional)
+                      Номер телефона (не обязательно)
                     </label>
                     <div style={{ position: 'relative' }}>
                       <input
@@ -221,7 +221,7 @@ const Registration = () => {
                         }}
                         onFocus={(e) => e.target.style.borderColor = 'var(--border-input-focus)'}
                         onBlur={(e) => e.target.style.borderColor = 'var(--border-input)'}
-                        placeholder="+1 (555) 123-4567"
+                        placeholder="+7 (999) 123-45-67"
                       />
                       <Phone 
                         size={16} 
@@ -248,7 +248,7 @@ const Registration = () => {
                       minHeight: '3rem'
                     }}
                   >
-                    Register for Course
+                    Записаться на курс
                     <ArrowRight size={16} />
                   </button>
                 </form>
@@ -258,7 +258,7 @@ const Registration = () => {
                   marginTop: '1rem',
                   color: 'var(--text-muted)'
                 }}>
-                  No spam, ever. Unsubscribe anytime.
+                  Никакого спама. Отписаться можно в любой момент.
                 </p>
               </div>
             </div>
@@ -279,11 +279,11 @@ const Registration = () => {
             </div>
             
             <h2 className="heading-1" style={{ marginBottom: '1rem' }}>
-              Welcome to WP Master!
+              Добро пожаловать в WP Мастер!
             </h2>
             
             <p className="body-large" style={{ marginBottom: '2rem' }}>
-              Thank you for registering! We'll send you course access details and next steps via email within the next few minutes.
+              Спасибо за регистрацию! Мы отправим вам данные для доступа к курсу и следующие шаги на email в течение нескольких минут.
             </p>
             
             <div style={{
@@ -293,7 +293,7 @@ const Registration = () => {
               marginBottom: '2rem'
             }}>
               <h3 className="heading-3" style={{ marginBottom: '1rem' }}>
-                What happens next?
+                Что дальше?
               </h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', textAlign: 'left' }}>
                 <div style={{ display: 'flex', gap: '0.75rem' }}>
@@ -309,7 +309,7 @@ const Registration = () => {
                     fontSize: '0.75rem',
                     flexShrink: 0
                   }}>1</span>
-                  <span className="body-medium">Check your email for course access link</span>
+                  <span className="body-medium">Проверьте почту для получения ссылки доступа к курсу</span>
                 </div>
                 <div style={{ display: 'flex', gap: '0.75rem' }}>
                   <span style={{ 
@@ -324,7 +324,7 @@ const Registration = () => {
                     fontSize: '0.75rem',
                     flexShrink: 0
                   }}>2</span>
-                  <span className="body-medium">Create your student account</span>
+                  <span className="body-medium">Создайте свой студенческий аккаунт</span>
                 </div>
                 <div style={{ display: 'flex', gap: '0.75rem' }}>
                   <span style={{ 
@@ -339,7 +339,7 @@ const Registration = () => {
                     fontSize: '0.75rem',
                     flexShrink: 0
                   }}>3</span>
-                  <span className="body-medium">Start with Module 1: WordPress Basics</span>
+                  <span className="body-medium">Начните с Модуля 1: Основы WordPress</span>
                 </div>
               </div>
             </div>
@@ -348,7 +348,7 @@ const Registration = () => {
               className="btn-secondary"
               onClick={() => setIsSubmitted(false)}
             >
-              Register Another Student
+              Зарегистрировать еще одного студента
             </button>
           </div>
         )}

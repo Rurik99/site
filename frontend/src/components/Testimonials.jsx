@@ -18,9 +18,9 @@ const Testimonials = () => {
     <section id="testimonials" className="pad-2xl" style={{ background: 'var(--bg-section)' }}>
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-          <h2 className="heading-1">What Our Students Say</h2>
+          <h2 className="heading-1">Отзывы наших студентов</h2>
           <p className="body-large" style={{ marginTop: '1rem' }}>
-            Join thousands of successful students who transformed their WordPress skills
+            Присоединяйтесь к тысячам успешных студентов, которые преобразили свои навыки работы с WordPress
           </p>
         </div>
 
@@ -38,7 +38,7 @@ const Testimonials = () => {
               boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)',
               position: 'relative'
             }}>
-              {/* Quote Icon */}
+              {/* Иконка цитаты */}
               <div style={{
                 position: 'absolute',
                 top: '1rem',
@@ -48,17 +48,17 @@ const Testimonials = () => {
                 <Quote size={32} />
               </div>
 
-              {/* Rating */}
+              {/* Рейтинг */}
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', marginBottom: '1rem' }}>
                 {renderStars(testimonial.rating)}
               </div>
 
-              {/* Testimonial Text */}
+              {/* Текст отзыва */}
               <p className="body-medium" style={{ marginBottom: '1.5rem', lineHeight: '1.6' }}>
                 "{testimonial.text}"
               </p>
 
-              {/* Author Info */}
+              {/* Информация об авторе */}
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <div>
                   <div className="body-small" style={{ fontWeight: '500', marginBottom: '0.25rem' }}>
@@ -76,7 +76,7 @@ const Testimonials = () => {
           ))}
         </div>
 
-        {/* Overall Stats */}
+        {/* Общая статистика */}
         <div style={{
           background: 'var(--bg-card)',
           borderRadius: '1rem',
@@ -93,7 +93,7 @@ const Testimonials = () => {
                 4.9/5
               </div>
               <div className="body-small" style={{ color: 'var(--text-muted)' }}>
-                Average Rating
+                Средний рейтинг
               </div>
             </div>
             <div>
@@ -101,7 +101,7 @@ const Testimonials = () => {
                 2,500+
               </div>
               <div className="body-small" style={{ color: 'var(--text-muted)' }}>
-                Happy Students
+                Довольных студентов
               </div>
             </div>
             <div>
@@ -109,7 +109,7 @@ const Testimonials = () => {
                 98%
               </div>
               <div className="body-small" style={{ color: 'var(--text-muted)' }}>
-                Completion Rate
+                Завершили курс
               </div>
             </div>
           </div>
